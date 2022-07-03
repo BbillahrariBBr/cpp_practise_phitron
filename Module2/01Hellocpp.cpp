@@ -1,7 +1,8 @@
 #include<iostream>
+using namespace std;
 
 int main()
 {
-  std::cout<<"Hello Cpp"<<std::endl<<"Welcome to DS";
+  cout<<"Hello Cpp"<<endl<<"Welcome to DS";
   return 0;
 }
