@@ -32,9 +32,30 @@ int main()
             }
         }
     }
-    cout<< "YES"<<endl;
-
+    //
+    int save;
+    for(i =0; i<row; i++)
+    {
+        for(j =0; j<col; j++)
+        {
+            if(i==j)
+            {
+                if(i==0 && j ==0) save = a[i][j];
+                else
+                {
+                    if(save!= a[i][j])
+                    {
+                        cout<<"Not scalar"<<endl;
+                        return 0;
+                    }
+                }
+            }
+        }
+    }
+cout<<"scalar"<<endl;
+cout<<save<<endl;
   return 0;
 }
+
 
 
