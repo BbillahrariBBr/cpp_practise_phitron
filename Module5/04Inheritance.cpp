@@ -17,6 +17,19 @@ public:
         z=c;
     }
 };
+class A
+{
+	int i;
+	A()
+	{
+		i=0; cout<<i;
+	}
+	A(int x=0)
+	{
+		i=x;  cout<<i;
+	}
+};
+
 
 class Child: public Parent{
 public:
@@ -31,6 +44,8 @@ int main()
     Parent pt(10,20,30);
     Child ch(100,10,20,30);
     cout<<ch.x;
+    A obj1;
+    cout<<obj1;
 
   return 0;
 }
