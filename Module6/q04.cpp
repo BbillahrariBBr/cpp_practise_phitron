@@ -5,10 +5,8 @@ int main()
 {
   string s1="Codeblocks";
 
-    s1.clear();
+    s1.resize(4);
 
-    cout<<s1.capacity()<<" "<<s1.size()<<endl;
+    cout<<s1<<endl;
   return 0;
 }
-
-
