@@ -16,6 +16,8 @@ int main()
     cout<<st.find_last_not_of('z')<<endl;
     //substring
     cout<<st.substr(3,5)<<endl;
+    //subsequence
+    cout<<st.substr(3,5)<<endl;
 //    //count
 //    cout<<st.count('a')<<endl;
 
