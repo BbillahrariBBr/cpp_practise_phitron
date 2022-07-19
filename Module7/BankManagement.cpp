@@ -153,10 +153,33 @@ int main()
 {
 
   BankAccount *myAccount = create_account();
-  add_money(myAccount);
-  deposit_money(myAccount);
   MyCash *mycash = new MyCash();
-  add_money_from_bank(mycash, myAccount);
+  while(true)
+  {
+      cout<<"Select option: "<<endl;
+      cout<<"1. Add money to Bank"<<endl;
+      cout<<"2. Deposit money from Bank"<<endl;
+      cout<<"3. Add money to MyCash from Bank"<<endl;
+      int option;
+      cin>>option;
+      if(option ==1)
+      {
+          add_money(myAccount);
+
+      }
+      else if(option == 2)
+      {
+          deposit_money(myAccount);
+      }
+      else if(option ==3)
+      {
+          add_money_from_bank(mycash, myAccount);
+      }
+  }
+
+
+
+
 
 
 
