@@ -32,7 +32,9 @@ int main()
     for(int i=1; i<=n; i++)
     {
         cout<<"Product "<<i<<" Name: ";
-        cin>>myShop->product_name[i];
+        cin.ignore();
+        getline(cin,myShop->product_name[i]);
+//        cin>>myShop->product_name[i];
         cout<<"Product "<<i<<" Price: ";
         cin>>myShop->product_price[i];
         cout<<"Product "<<i<<" Quantity: ";
