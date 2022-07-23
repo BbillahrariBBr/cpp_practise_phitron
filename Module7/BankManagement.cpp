@@ -175,6 +175,10 @@ int main()
       {
           add_money_from_bank(mycash, myAccount);
       }
+      else
+      {
+          cout<<"Invalid Input"<<endl;
+      }
   }
 
 
