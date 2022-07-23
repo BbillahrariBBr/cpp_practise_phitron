@@ -48,8 +48,29 @@ int main()
             cin>>item_code[i];
             cout<<"Enter Item "<<i+1<<" Quantity : ";
             cin>>item_quan[i];
-
         }
+
+        // table summary
+
+    cout<<"\t\t\t\tBill Summary"<<endl;
+    cout<<"\t\t\t____________________"<<endl<<endl;
+    cout<<"Table no. : "<<table_no<<endl;
+    cout<<"Item Code\t\t"<<"Item Name\t\t\t"<<"Item Price\t"<<"Item Quantity\t"<<"Total price"<<endl;
+    for(int i = 0; i<nmbr; i++)
+    {
+        for(int j = 1; j<=n; j++)
+        {
+            if(item_code[i]== my_Res->food_item_codes[j])
+            {
+                cout<<my_Res->food_item_codes[j]<<"\t\t\t"<<my_Res->food_item_names[j]<<"\t\t"<<my_Res->food_item_prices[j]<<"\t\t"<<item_quan[i]<<"\t\t"<<my_Res->food_item_prices[j]*item_quan[i]<<endl;
+            }
+            else{
+                cout<<"item code wrong"<<endl;
+
+            }
+        }
+    }
+
 
 
   return 0;
