@@ -33,10 +33,13 @@ int main()
 
     for(int i =1; i<size; i++)
     {
+        cout<<"Iteration "<<i<<"  : ";
+        int flag =0;
         for(int j =0; j<size-i; j++)
         {
             if(array[j]>array[j+1])
             {
+                flag = 1;
                 int temp = array[j];
                 array[j] = array[j+1];
                 array[j+1] = temp;
@@ -44,7 +47,12 @@ int main()
              printArray(array, size);
              cout<<endl;
         }
-        cout<<"Iteration "<<i+1<<" done"<<endl;
+
+        cout<<endl;
+        if(flag == 0)
+        {
+            break;
+        }
     }
 
     cout<<"After sort : ";
