@@ -31,9 +31,9 @@ int main()
     printArray(array, size);
     // bubble sort implementation
 
-    for(int i =0; i<size; i++)
+    for(int i =1; i<size; i++)
     {
-        for(int j =0; j<size-1; j++)
+        for(int j =0; j<size-i; j++)
         {
             if(array[j]>array[j+1])
             {
@@ -41,7 +41,10 @@ int main()
                 array[j] = array[j+1];
                 array[j+1] = temp;
             }
+             printArray(array, size);
+             cout<<endl;
         }
+        cout<<"Iteration "<<i+1<<" done"<<endl;
     }
 
     cout<<"After sort : ";
