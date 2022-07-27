@@ -28,17 +28,23 @@ int main()
     // bubble sort
     for(int i = 1; i<size; i++)
     {
+        int flag =0;
         cout<<"Iteration "<<i<<" : "<<endl;
-        for(int j =0; j<size-1; j++)
+        for(int j =0; j<size-i; j++)
         {
             if(array[j]>array[j+1])
             {
                 int temp = array[j];
                 array[j] = array[j+1];
                 array[j+1] = temp;
+                flag =1;
             }
             printArray(array,size);
         }
+        if(flag==0)
+            {
+             break;
+            }
         cout<<endl;
     }
 
@@ -46,3 +52,4 @@ int main()
     printArray(array,size);
     return 0;
 }
+
