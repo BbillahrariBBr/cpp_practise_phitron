@@ -2,6 +2,7 @@
 using namespace std;
 //wrong 3 2 3 need fixed
 // at coder abc046_a ->paint cans
+// fixed
 int main()
 {
     int array[3];
