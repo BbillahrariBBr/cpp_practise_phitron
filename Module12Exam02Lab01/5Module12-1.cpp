@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printArray(int array[], int size)
-{
-    for(int i =1; i<size; i++)
-    {
-        cout<<array[i]<<" ";
-    }
-    cout<<endl;
-}
+//void printArray(int array[], int size)
+//{
+//    for(int i =1; i<size; i++)
+//    {
+//        cout<<array[i]<<" ";
+//    }
+//    cout<<endl;
+//}
 //void prefix(int array[], int size)
 //{
 //    for(int i =0; i<size; i++)
