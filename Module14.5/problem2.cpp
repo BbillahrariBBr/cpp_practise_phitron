@@ -23,17 +23,29 @@ int main()
     {
         for(int j =0; j<n; j++)
         {
-           if(i==j)
-           {
-               array[i][j] = 1;
-           }
-           else
-            array[i][j] =0;
+          cin>>array[i][j];
         }
     }
-    printArray(*array,n);
+
+    cout<<"Major diagonal : ";
+    for(int i = 0; i<n; i++)
+    {
+        cout<<array[i][i]<<" ";
+    }
+    cout <<endl;
+
+    cout<<"Minor diagonal : ";
+    for(int i = 0; i<n; i++)
+    {
+        cout<<array[i][n-i-1]<<" ";
+    }
+    cout <<endl;
+
+
+   //printArray(*array,n);
 
   return 0;
 }
+
 
 
