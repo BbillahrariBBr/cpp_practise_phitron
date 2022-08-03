@@ -23,7 +23,7 @@ int main()
     {
         for(int j =0; j<col; j++)
         {
-           array[i][j]=0;
+           array[i];
         }
     }
     printArray(*array,row,col);
