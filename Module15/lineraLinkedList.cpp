@@ -11,6 +11,11 @@ public:
         Next = NULL;
     }
 };
+void insertAtHead(Node *&head, int val);
+void insertAtHead(Node *&head, int val);
+void reversedListPrint(Node *head);
+void display(Node *n);
+int countingLength(Node *&head);
 
 void display(Node *n)
 {
@@ -65,6 +70,18 @@ void insertAtHead(Node *&head, int val)
     //s3: update of head(head = newNode)
     head = newNode;
 
+}
+
+int countingLength(Node* &head)
+{
+    int count = 0;
+    Node* temp = head
+    while(temp != NULL)
+    {
+        temp = temp->Next;
+        count++;
+    }
+    return count;
 }
 int main()
 {
