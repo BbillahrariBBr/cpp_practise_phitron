@@ -47,12 +47,21 @@ int main()
 
     // step 5 sort using back track
     int final[size];
+    for(int i = 0; i<size; i++)
+    {
+        final[i]=0;
+    }
 
     for(int i=size-1; i>=0; i--)
     {
+        cout<<"i->>"<<i<<" ";
         count[array[i]]--;
+        cout<<"Array of i "<<array[i]<<"count array value->"<<count[array[i]]<<" ";
         int k = count[array[i]];
+        cout<<"k-->"<<k<<" ";
         final[k]= array[i];
+        printArray(final,size);
+        cout<<endl;
     }
 
     printArray(final,size);

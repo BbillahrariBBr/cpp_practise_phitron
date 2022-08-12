@@ -26,6 +26,14 @@ void display(Node *n)
     cout<<endl;
 
 }
+/*Prints Linked List in reverse order without reversing it.
+*/
+void reversedListPrint(Node *head) {
+    if (head != NULL) {
+        reversedListPrint(head->Next);
+        cout <<"-> " << head->value;
+    }
+}
 
 void insertAtTail(Node *&head, int val)
 {
@@ -44,6 +52,9 @@ void insertAtTail(Node *&head, int val)
     temp->Next = newNode;
 
 }
+
+
+
 
 void insertAtHead(Node *&head, int val)
 {
@@ -93,6 +104,10 @@ int main()
 //    fourth->Next = NULL;
 
     display(head);
+    cout<<"reverse print"<<endl;
+
+    reversedListPrint(head);
+
 
   return 0;
 }
