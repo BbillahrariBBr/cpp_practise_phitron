@@ -1,7 +1,10 @@
 #include<bits/stdc++.h>
 #include"MYSTACK.h"
 using namespace std;
-
+/*
+* stack of flot, stack of char, double, string, array, structure
+object of class
+*/
 int main()
 {
     Stack st;
