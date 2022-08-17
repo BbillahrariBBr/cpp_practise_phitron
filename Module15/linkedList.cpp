@@ -5,7 +5,7 @@ using namespace std;
 class Node{
 public:
     int value;
-    Node * next;
+    Node *next;
 
     Node(int val){
         this->value= val;
@@ -15,8 +15,8 @@ public:
 
 int main()
 {
-    Node head(5);
-    cout<<head.next<<endl;
+    Node *head = new Node(7);
+    cout<<head->value<<endl;
 
   return 0;
 }
