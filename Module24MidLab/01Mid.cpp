@@ -26,13 +26,15 @@ int main()
     }
 
     int freqSize = maxNumber(arr,n);
-    int freqArray[freqSize+1] = {0};
-
+    int freqArray[freqSize+1] = {0}; // set all 0
+    // set unique value in frqArr
     for(int i = 0; i<n; i++)
     {
         freqArray[arr[i]]++;
     }
-    for(int i=1; i<freqSize+1; i++)
+
+    //display
+    for(int i=0; i<freqSize+1; i++)
     {
         if(freqArray[i]!=0)
         {
