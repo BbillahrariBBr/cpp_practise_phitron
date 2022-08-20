@@ -38,7 +38,7 @@ int main()
     {
         if(freqArray[i]!=0)
         {
-            cout<<i<<"=>"<<freqArray[i]<<endl;
+            cout<<i<<" => "<<freqArray[i]<<endl;
         }
 
     }
