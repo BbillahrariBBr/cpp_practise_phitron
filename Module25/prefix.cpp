@@ -43,9 +43,10 @@ int prefixEvaluation(string chk)
 }
 //+*423
 //-+7*45+20
+//+9*3/8 4
 int main()
 {
-    cout<<prefixEvaluation("-+7*45+20")<<endl;
+    cout<<prefixEvaluation("+9*3/84")<<endl;
   return 0;
 }
 
