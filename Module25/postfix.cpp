@@ -41,9 +41,10 @@ int postfixEvaluation(string chk)
 }
 //42*3+
 //745*+20+-
+//745*20+-+
 int main()
 {
-    cout<<postfixEvaluation("23+4^")<<endl;
+    cout<<postfixEvaluation("745*20+-+")<<endl;
 
   return 0;
 }
