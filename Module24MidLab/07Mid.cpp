@@ -28,7 +28,7 @@ Node* reverse(Node* head) {
 
 
 
-Node* reverseKGroup(Node* head, int k) {
+Node* reverseKNodes(Node* head, int k) {
         if(k==0 || head==NULL || head->next==NULL)
             return head;
 
@@ -40,7 +40,7 @@ Node* reverseKGroup(Node* head, int k) {
         }
         if(cnt!=0)
             return head;
-         Node* t=reverseKGroup(tmp->next,k);
+         Node* t=reverseKNodes(tmp->next,k);
         tmp->next=NULL;
          Node* newHead=reverse(head);
         tmp=newHead;
@@ -93,16 +93,13 @@ int main()
     for(int i = 0; i<n; i++)
     {
         cin>>value;
-//        if(value%2==0)
-//        {
-//            value = -1;
-//        }
+
         insertLL(head,value);
 
     }
     int k;
     cin >>k;
-    Node *newHead = reverseKGroup(head,k);
+    Node *newHead = reverseKNodes(head,k);
 
     display(newHead);
 
