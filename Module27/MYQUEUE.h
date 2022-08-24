@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-template <typename N> class Node{
+template <typename N> class NodeQueue{
     public:
     N value;
-    Node* next;
+    NodeQueue* next;
 
-    Node(N val)
+    NodeQueue(N val)
     {
         value = val;
         next = NULL;
