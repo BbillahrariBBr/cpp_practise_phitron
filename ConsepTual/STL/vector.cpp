@@ -14,11 +14,14 @@ int main()
     //cout<<v.empty()<<endl;
     vector<int>::iterator it;
     vector<int> :: reverse_iterator rit;
-    v.push_back(100);
+//    ---rend
+    v.push_back(100); //begin
     v.push_back(200);
     v.push_back(300);
     v.push_back(400);
-    v.push_back(500);
+    v.push_back(500); //rend
+    // ------- end
+
     //for vector size;
     //cout<<v.size()<<endl;
     //vector capacity
