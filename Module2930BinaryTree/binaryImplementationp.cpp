@@ -69,4 +69,18 @@ preorder
 6 -1 -1
 7 -1 -1
 8 -1 1-1
+
+pre-order print formate
+root:0
+left:
+    root:1
+    left:3
+    right:4
+right:
+    root:2
+    left:
+        root:5
+        left:7
+        right:8
+    right:6
 */
