@@ -74,6 +74,29 @@ void spacePrint(int level)
     }
 }
 
+void inOrder(treeNode * root, string &chk) //left root right
+{
+    if(root == NULL) return;
+    inOrder(root->leftChild,chk);
+    chk+= to_string(root->data);
+    inOrder(root->rightChild,chk);
+}
+
+void preOrder(treeNode * root, string &chk) //root left right
+{
+    if(root == NULL) return;
+    chk+= to_string(root->data);
+    preOrder(root->leftChild,chk);
+    preOrder(root->rightChild,chk);
+}
+
+void postOrder(treeNode * root, string &chk) //left right root
+{
+    if(root == NULL) return;
+    postOrder(root->leftChild,chk);
+    postOrder(root->rightChild,chk);
+    chk+= to_string(root->data);
+}
 int main()
 {
     //user input
@@ -110,6 +133,19 @@ int main()
     }
 
     printTree(allNodes[0],0);
+    string inOrderTraversal = "";
+    inOrder(allNodes[0],inOrderTraversal);
+    cout<<"Inorder: "<<inOrderTraversal<<endl;
+
+
+    string preOrderTraversal = "";
+    preOrder(allNodes[0],preOrderTraversal);
+    cout<<"Preorder: "<<preOrderTraversal<<endl;
+
+
+    string postOrderTraversal = "";
+    postOrder(allNodes[0],postOrderTraversal);
+    cout<<"Postorder: "<<postOrderTraversal<<endl;
 
   return 0;
 }
