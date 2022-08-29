@@ -15,9 +15,14 @@ public:
     }
 };
 
+void printTree(treeNode* root, int level);
 void printTree(treeNode* root, int level)
 {
-
+    if(root== NULL)
+    {
+        return;
+    }
+    cout<<"Root: "<<root->data<<endl;
 }
 int main()
 {
