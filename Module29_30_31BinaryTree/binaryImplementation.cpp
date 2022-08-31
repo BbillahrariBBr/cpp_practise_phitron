@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-class treeNode{
+class treeNode
+{
 public:
     int data;
     treeNode* leftChild;
@@ -16,6 +17,7 @@ public:
 
 void printTree(treeNode* root, int level);
 void spacePrint(int level);
+void levelOrderTraversal(treeNode * root, string &chk);
 
 /*
 root: 0
@@ -32,7 +34,8 @@ right:
     right:6
 
 */
-void printTree(treeNode* root, int level){
+void printTree(treeNode* root, int level)
+{
     if(root==NULL) //when the tree is empty
     {
         return;
@@ -43,7 +46,8 @@ void printTree(treeNode* root, int level){
         cout<<root->data<<endl;
         return;
     }
-    else{ //case2
+    else  //case2
+    {
         cout<<endl;
         spacePrint(level);
         cout<<"Root: "<<root->data<<endl;
@@ -74,6 +78,93 @@ void spacePrint(int level)
     }
 }
 
+
+//module31 level order traversal
+//void levelOrderTraversal(treeNode * root, string &chk,int kthLevel)
+//{
+//    if(root == NULL)
+//    {
+//        return;
+//    }
+//    queue<treeNode*> q;
+//    //step 1 push root and NULL
+//    int level = 0
+//    q.push(root);
+//    q.push(NULL);
+//
+//    while(!q.empty())
+//    {
+//        treeNode* chkNode = q.front();
+//        q.pop();
+//        if(chkNode!= NULL)
+//        {
+//            cout<<chkNode->data<<" ";
+//            chk+= to_string(chkNode->data);
+//            if(chkNode->leftChild!=NULL)
+//            {
+//                q.push(chkNode->leftChild);
+//            }
+//            if(chkNode->rightChild!=NULL)
+//            {
+//                q.push(chkNode->rightChild);
+//            }
+//        }
+//        else{
+//            if(!q.empty()){
+//                q.push(NULL);
+//                level++;
+//            }
+//
+//        }
+//    }
+//}
+int levelOrderTraversal(treeNode * root, string &chk,int kthLevel)
+{
+    if(root == NULL)
+    {
+        return -1;
+    }
+    queue<treeNode*> q;
+    //step 1 push root and NULL
+    int level = 0;
+    q.push(root);
+    q.push(NULL);
+    int max = -9999;
+
+    while(!q.empty())
+    {
+        treeNode* chkNode = q.front();
+        q.pop();
+        if(chkNode!= NULL)
+        {
+            if(level == kthLevel)
+            {
+                if(max<chkNode->data)
+                {
+                    max = chkNode->data;
+                }
+            }
+            cout<<chkNode->data<<" ";
+            chk+= to_string(chkNode->data);
+            if(chkNode->leftChild!=NULL)
+            {
+                q.push(chkNode->leftChild);
+            }
+            if(chkNode->rightChild!=NULL)
+            {
+                q.push(chkNode->rightChild);
+            }
+        }
+        else{
+            if(!q.empty()){
+                q.push(NULL);
+                level++;
+            }
+
+        }
+    }
+    return max;
+}
 void inOrder(treeNode * root, string &chk) //left root right
 {
     if(root == NULL) return;
@@ -147,7 +238,13 @@ int main()
     postOrder(allNodes[0],postOrderTraversal);
     cout<<"Postorder: "<<postOrderTraversal<<endl;
 
-  return 0;
+    string levOrderTraversal = "";
+    int maxVlaueK = levelOrderTraversal(allNodes[0],levOrderTraversal,2);
+//    cout<<"level Order: "<<levOrderTraversal<<endl;
+
+    cout<<endl<<"kth max "<<maxVlaueK<<endl;
+
+    return 0;
 }
 
 /*
@@ -180,4 +277,8 @@ right:
 inorder
 
 postorder
+
+Inorder: 314075826
+Preorder: 013425786
+Postorder: 341785620
 */
