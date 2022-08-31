@@ -18,6 +18,10 @@ public:
 void printTree(treeNode* root, int level);
 void spacePrint(int level);
 void levelOrderTraversal(treeNode * root, string &chk);
+void boundaryTraversal(treeNode* root);
+void printLeaves(treeNode* root);
+void printLeftNonLeaves(treeNode* root);
+void printRightNonLeaves(treeNode* root);
 
 /*
 root: 0
@@ -155,8 +159,10 @@ int levelOrderTraversal(treeNode * root, string &chk,int kthLevel)
                 q.push(chkNode->rightChild);
             }
         }
-        else{
-            if(!q.empty()){
+        else
+        {
+            if(!q.empty())
+            {
                 q.push(NULL);
                 level++;
             }
@@ -187,6 +193,67 @@ void postOrder(treeNode * root, string &chk) //left right root
     postOrder(root->leftChild,chk);
     postOrder(root->rightChild,chk);
     chk+= to_string(root->data);
+}
+
+void printLeaves(treeNode* root)
+{
+    if(root ==NULL) return;
+    if(root->leftChild==NULL && root->rightChild == NULL)
+    {
+        cout<<root->data<<" ";
+        return;
+    }
+    printLeaves(root->leftChild);
+
+    printLeaves(root->rightChild);
+
+}
+void printLeftNonLeaves(treeNode *root)
+{
+    if(root ==NULL) return;
+    if(root->leftChild!=NULL)
+    {
+        cout<<root->data<<" ";
+        printLeftNonLeaves(root->leftChild);
+    }
+    else if(root->rightChild!=NULL)
+    {
+        cout<<root->data<<" ";
+        printLeftNonLeaves(root->rightChild);
+    }
+
+}
+void printRightNonLeaves(treeNode *root)
+{
+    if(root ==NULL) return;
+     if(root->rightChild!=NULL)
+    {
+        cout<<root->data<<" ";
+        printRightNonLeaves(root->rightChild);
+    }
+    else if(root->leftChild!=NULL)
+    {
+        cout<<root->data<<" ";
+        printRightNonLeaves(root->leftChild);
+    }
+
+}
+//boundary traversal module 31
+void boundaryTraversal(treeNode *root)
+{
+    if(root ==NULL)
+        return;
+
+    cout<<root->data<<" ";
+    // LB non-leaves
+    printLeftNonLeaves(root->leftChild);
+    //LB leaves
+    printLeaves(root->leftChild);
+    //RB leaves
+    printLeaves(root->rightChild);
+    //Rb non-Leaves
+    printRightNonLeaves(root->rightChild);
+
 }
 int main()
 {
@@ -242,7 +309,9 @@ int main()
     int maxVlaueK = levelOrderTraversal(allNodes[0],levOrderTraversal,2);
 //    cout<<"level Order: "<<levOrderTraversal<<endl;
 
-    cout<<endl<<"kth max "<<maxVlaueK<<endl;
+    cout<<endl<<"kth max "<<maxVlaueK<<endl<<endl;
+
+    boundaryTraversal(allNodes[0]);
 
     return 0;
 }
