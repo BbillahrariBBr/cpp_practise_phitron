@@ -104,6 +104,39 @@ int main()
 //    string chk2 = "";
 //    printInOrder(root2,chk2);
 //    cout<<"first root: "<<chk1 <<endl<<"second root: "<<chk2<<endl;
+
+/*
+case1 same
+first tree
+1
+2 3
+-1 -1 -1 -1
+second tree
+1
+2 3
+-1 -1 -1 -1
+
+case2 not same
+first tree
+1
+2 -1
+-1 -1
+second tree
+1
+-1 2
+-1 -1
+
+
+case3 Not same
+first tree
+1
+2 1
+-1 -1 -1 -1
+second tree
+1
+1 2
+-1 -1 -1 -1
+*/
   return 0;
 }
 
