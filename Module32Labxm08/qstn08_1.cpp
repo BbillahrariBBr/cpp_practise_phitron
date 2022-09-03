@@ -15,25 +15,34 @@ public:
     }
 };
 
-void inOrder(Node * root,string &chk){
-    if(root==NULL) return ;
-    inOrder(root->leftChild,chk);
-    chk+=to_string(root->data);
-    inOrder(root->rightChild,chk);
-}
+ void average_level(Node* root)
+ {
+     if(root== NULL) return;
+     queue<Node * >q;
+     q.push(root);
+     while(!q.empty())
+     {
+         int sum = 0;
+         int total = 0;
+         queue<Node * > temp;
+         while (!q.empty())
+         {
+            Node *curr = q.front();
+            q.pop();
 
-Node * invertBinaryTree(Node* root)
-{
-    if (root == NULL) {
-        return root;
-    }
-    swap(root->leftChild, root->rightChild);
+            sum += curr->data;
 
-    invertBinaryTree(root->leftChild);
-    invertBinaryTree(root->rightChild);
+            total++;
 
-    return root;
-}
+            if (curr->leftChild != NULL) temp.push(curr->leftChild);
+            if (curr->rightChild != NULL) temp.push(curr->rightChild);
+        }
+        double average = (double) sum / (double) total;
+        cout << fixed << setprecision(1) << average<<" ";
+        q = temp;
+     }
+
+ }
 
 int main()
 {
@@ -64,23 +73,20 @@ int main()
         if(rightNode!=NULL) q.push(rightNode);
 
     }
-    string chk1 = "";
-    string chk2 = "";
-    inOrder(root,chk1);
-    cout<<chk1<<endl;
-    Node * root1 = invertBinaryTree(root);
-    inOrder(root1,chk2);
-    cout<<chk2;
+    average_level(root);
 
     return 0;
 }
 /*
 
-4
-2 7
-1 3 6 9
--1 -1 -1 -1 -1 -1 -1 -1
+3
+9 20
+-1 -1 15 7
+-1 -1 -1 -1
 
-9764321
+2
+2 2
+-1 -1 -1 -1
 
 */
+
