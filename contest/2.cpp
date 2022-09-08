@@ -14,10 +14,7 @@ int main()
         cout<<missing_number<<endl;
 
     }
-//    int sum,a,b,c;
-//    cin>>sum>>a>>b>>c;
-//    missing_number = sum-(a+b+c);
-//    cout<<missing_number<<endl;
+
 
   return 0;
 }
