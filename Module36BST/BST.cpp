@@ -226,7 +226,7 @@ void printLeftNonLeaves(treeNode *root)
 void printRightNonLeaves(treeNode *root)
 {
     if(root ==NULL) return;
-     if(root->rightChild!=NULL)
+    if(root->rightChild!=NULL)
     {
         cout<<root->data<<" ";
         printRightNonLeaves(root->rightChild);
@@ -300,6 +300,15 @@ treeNode* searchBST(treeNode* root, int value)
         searchBST(root->rightChild,value);
     }
 }
+treeNode* inOrderSucc(treeNode* root)
+{
+    treeNode* curr = root;
+    while(curr->leftChild != NULL)
+    {
+        curr = curr->leftChild;
+    }
+    return curr;
+}
 
 treeNode* deletionBST(treeNode* root, int value)
 {
@@ -312,24 +321,29 @@ treeNode* deletionBST(treeNode* root, int value)
     {
         root->rightChild = deletionBST(root->rightChild,value);
     }
-    else{
+    else
+    {
         //implementation 3 case
         if(root->leftChild == NULL) //case 1 and 2
         {
             treeNode* temp = root->rightChild;
-             free(root);
-             return temp;
+            free(root);
+            return temp;
         }
         else if(root->rightChild == NULL) //case 2
         {
             treeNode* temp = root->leftChild;
-             free(root);
-             return temp;
+            free(root);
+            return temp;
         }
-        else{
-            treeNode* temp = root->leftChild;
+        else
+        {
+            treeNode* temp = inOrderSucc(root->rightChild);
+            root->data = temp->data;
+            root->rightChild = deletionBST(root->rightChild, temp->data);
 
         }
+        return root;
 
     }
 }
@@ -351,15 +365,24 @@ int main()
 
     int key;
     cin>>key;
-    treeNode* sres;
-    sres = searchBST(root,key);
-    if(sres == NULL)
-    {
-        cout<<endl<<"Value doesnt exits in the BST"<<endl;
-    }
-    else{
-        cout<<endl<<sres->data<<" exits in the BST"<<endl;
-    }
+    //search
+
+//    treeNode* sres;
+//    sres = searchBST(root,key);
+//    if(sres == NULL)
+//    {
+//        cout<<endl<<"Value doesnt exits in the BST"<<endl;
+//    }
+//    else
+//    {
+//        cout<<endl<<sres->data<<" exits in the BST"<<endl;
+//    }
+
+// deletion
+    root  = deletionBST(root, key);
+    string res2 = "";
+    inOrder(root, res2);
+    cout<<"after deletion "<<res2;
     cout<<endl<<endl;
     return 0;
 }
