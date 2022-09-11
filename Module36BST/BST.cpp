@@ -277,6 +277,29 @@ treeNode* insertionBST(treeNode* root, int value)
     return root;
 
 }
+
+treeNode* searchBST(treeNode* root, int value)
+{
+    if(root==NULL)
+    {
+        return NULL;
+    }
+    if(root->data == value)
+    {
+        cout<< root->data;
+        return root;
+    }
+    else if(value < root->data)
+    {
+        cout<< root->data<<"->";
+        searchBST(root->leftChild,value);
+    }
+    else if(value> root->data)
+    {
+        cout<< root->data<<"->";
+        searchBST(root->rightChild,value);
+    }
+}
 int main()
 {
     //user input
@@ -293,11 +316,26 @@ int main()
     inOrder(root, res);
     cout<<res;
 
-
+    int key;
+    cin>>key;
+    treeNode* sres;
+    sres = searchBST(root,key);
+    if(sres == NULL)
+    {
+        cout<<endl<<"Value doesnt exits in the BST"<<endl;
+    }
+    else{
+        cout<<endl<<sres->data<<" exits in the BST"<<endl;
+    }
+    cout<<endl<<endl;
     return 0;
 }
 
 /*
+
+9
+11 5 9 43 34 1 2 7 21
+
 node
 9
 0 1 2
