@@ -300,6 +300,39 @@ treeNode* searchBST(treeNode* root, int value)
         searchBST(root->rightChild,value);
     }
 }
+
+treeNode* deletionBST(treeNode* root, int value)
+{
+    if(value < root->data)
+    {
+        root->leftChild = deletionBST(root->leftChild,value);
+
+    }
+    else if(value > root->data)
+    {
+        root->rightChild = deletionBST(root->rightChild,value);
+    }
+    else{
+        //implementation 3 case
+        if(root->leftChild == NULL) //case 1 and 2
+        {
+            treeNode* temp = root->rightChild;
+             free(root);
+             return temp;
+        }
+        else if(root->rightChild == NULL) //case 2
+        {
+            treeNode* temp = root->leftChild;
+             free(root);
+             return temp;
+        }
+        else{
+            treeNode* temp = root->leftChild;
+
+        }
+
+    }
+}
 int main()
 {
     //user input
