@@ -38,6 +38,16 @@ void printArray(int array[], int size)
     }
     cout<<endl;
 }
+
+void heapSort(int array[], int size)
+{
+    for(int i = size-1; i>=0; i--)
+    {
+        swap(array[0],array[i]);
+        //print the array
+        heapify(array,i,0);
+    }
+}
 int main()
 {
     int n;
@@ -58,6 +68,14 @@ int main()
     }
     cout<<"after Heapify: "<<endl;
     printArray(array,n);
+
+    heapSort(array,n);
+    cout<<"after heapSort: "<<endl;
+    printArray(array,n);
   return 0;
 }
+/*
+9
+2 10 1 5 4 8 3 8 7
+*/
 
