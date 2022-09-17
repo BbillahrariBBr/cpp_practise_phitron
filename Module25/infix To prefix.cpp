@@ -92,7 +92,8 @@ int prefixEvaluation(string chk)
 }
 int main()
 {
-    string infixvalue = "(7+(4*5)-(2+0))";
+//    string infixvalue = "(7+(4*5)-(2+0))";
+    string infixvalue = "(5*((6^2)+(7-(2/6))))-((7*(8+1))+(5*4))";
     string prefixValue = infixToPrefix(infixvalue);
     cout<<prefixValue<<endl;
 
@@ -100,4 +101,7 @@ int main()
     //cout<<prefixEvaluation("-+7*45+20")<<endl;
   return 0;
 }
+/*
+(5*((6^2)+(7-(2/6))))-((7*(8+1))+(5*4))
+*/
 

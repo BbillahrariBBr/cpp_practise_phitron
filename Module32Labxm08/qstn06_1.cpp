@@ -22,15 +22,15 @@ void inOrder(Node * root,string &chk){
     inOrder(root->rightChild,chk);
 }
 
-Node * invertBinaryTree(Node* root)
+Node * invert_tree(Node* root)
 {
     if (root == NULL) {
         return root;
     }
     swap(root->leftChild, root->rightChild);
 
-    invertBinaryTree(root->leftChild);
-    invertBinaryTree(root->rightChild);
+    invert_tree(root->leftChild);
+    invert_tree(root->rightChild);
 
     return root;
 }
@@ -68,7 +68,7 @@ int main()
     string chk2 = "";
     inOrder(root,chk1);
     cout<<chk1<<endl;
-    Node * root1 = invertBinaryTree(root);
+    Node * root1 = invert_tree(root);
     inOrder(root1,chk2);
     cout<<chk2;
 

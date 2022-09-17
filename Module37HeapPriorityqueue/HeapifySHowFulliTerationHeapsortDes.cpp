@@ -41,11 +41,20 @@ void printArray(int array[], int size)
 
 void heapSort(int array[], int size)
 {
+    int iter=1;
     for(int i = size-1; i>=0; i--)
     {
+        cout<<"iteration: "<<iter<<endl<<endl;
+        cout<<"Before Swap the array is: "<<endl;
+        printArray(array,size);
         swap(array[0],array[i]);
+        cout<<endl<<"After Swap and Before heapify the array is: "<<endl;
+        printArray(array,size);
         //print the array
         heapify(array,i,0);
+        cout<<endl<<"After heapify the array is: "<<endl;
+        printArray(array,size);
+        iter++;
     }
 }
 int main()
@@ -80,6 +89,11 @@ int main()
 8
 10 40 20 8 99 1 15 17
 
+6
+20 50 40 5 30 15
+
 
 */
+
+
 

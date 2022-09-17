@@ -88,7 +88,8 @@ int postfixEvaluation(string chk)
 }
 int main()
 {
-    string infixvalue = "(7+(4*5)-(2+0))";
+    //string infixvalue = "(7+(4*5)-(2+0))";
+    string infixvalue = "(5*((6^2)+(7-(2/6))))-((7*(8+1))+(5*4))";
     string postfixValue = infixToPostfix(infixvalue);
     cout<<postfixValue<<endl;
 

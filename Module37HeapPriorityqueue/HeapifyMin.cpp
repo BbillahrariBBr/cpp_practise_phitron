@@ -10,22 +10,22 @@ void swap(int *a, int *b)
 }
 void heapify(int array[], int size, int current)
 {
-    int largest = current;
+    int min = current;
     int leftChild = (2*current)+1;
     int rightChild = (2*current)+2;
 
-    if(leftChild<size && array[leftChild]>array[largest])
+    if(leftChild<size && array[leftChild]<array[min])
     {
-        largest = leftChild;
+        min = leftChild;
     }
-    if(rightChild<size &&array[rightChild]>array[largest])
+    if(rightChild<size &&array[rightChild]<array[min])
     {
-        largest = rightChild;
+        min = rightChild;
     }
-    if(largest !=current)
+    if(min !=current)
     {
-        swap(array[current],array[largest]);
-        heapify(array,size,largest);
+        swap(array[current],array[min]);
+        heapify(array,size,min);
     }
 
 }
@@ -40,12 +40,22 @@ void printArray(int array[], int size)
 }
 
 void heapSort(int array[], int size)
+
 {
-    for(int i = size-1; i>=0; i--)
+    int iter=1;
+    for(int i = size-1; i>0; i--)
     {
+        cout<<"iteration: "<<iter<<endl<<endl;
+        cout<<"Before Swap the array is: "<<endl;
+        printArray(array,size);
         swap(array[0],array[i]);
+        cout<<endl<<"After Swap and Before heapify the array is: "<<endl;
+        printArray(array,size);
         //print the array
         heapify(array,i,0);
+        cout<<endl<<"After heapify the array is: "<<endl;
+        printArray(array,size);
+        iter++;
     }
 }
 int main()
@@ -72,7 +82,7 @@ int main()
     heapSort(array,n);
     cout<<"after heapSort: "<<endl;
     printArray(array,n);
-  return 0;
+    return 0;
 }
 /*
 9
@@ -80,6 +90,10 @@ int main()
 8
 10 40 20 8 99 1 15 17
 
+6
+20 50 40 5 30 15
+
 
 */
+
 

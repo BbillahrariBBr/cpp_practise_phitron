@@ -307,7 +307,7 @@ int main()
 
     string levOrderTraversal = "";
     int maxVlaueK = levelOrderTraversal(allNodes[0],levOrderTraversal,2);
-//    cout<<"level Order: "<<levOrderTraversal<<endl;
+    cout<<"level Order: "<<levOrderTraversal<<endl;
 
     cout<<endl<<"kth max "<<maxVlaueK<<endl<<endl;
 
